@@ -2,7 +2,7 @@
 class Sondage extends Bdd{
 
 	public function getSondId($idsond) {
-		$req = $this->connexionbdd()->query('SELECT * FROM sondage WHERE idSondage="'.$idsond.'"') or die($mysqli -> error);
+		$req = $this->connexionbdd()->query('SELECT * FROM sondage WHERE libelleSondage="'.$idsond.'"') or die($mysqli -> error);
 		$req = $req->fetch_array();
 		return $req;
 	}
@@ -11,7 +11,7 @@ class Sondage extends Bdd{
 		return $rec;
 	}
 	public function getSondRep($idsond) {
-		$req1 = $this->connexionbdd()->query('SELECT * FROM tb_sondage WHERE codeQ_Sondage="'.$idsond.'"') or die($mysqli -> error);
+		$req1 = $this->connexionbdd()->query("SELECT * FROM tb_sondage INNER JOIN q_sondage ON q_sondage.codeQ_sondage = tb_sondage.codeQ_sondage WHERE q_sondage.codeQ_sondage = $idsond");
 		return $req1;
 	}
 	public function getSondages(){
