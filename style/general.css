@@ -1,0 +1,51 @@
+/* Polices */
+
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('../polices/ballpark.eot');
+    src: url('../polices/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('../polices/ballpark.woff') format('woff'),
+         url('../polices/ballpark.ttf') format('truetype'),
+         url('../polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('../polices/dayrom.eot');
+    src: url('../polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('../polices/dayrom.woff') format('woff'),
+         url('../polices/dayrom.ttf') format('truetype'),
+         url('../polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Logo */
+
+#title{
+	margin-bottom: 50px;
+	margin-top: 50px;
+	width: 597px;
+	margin-left: 20px;
+}
+
+
+/* Banière */
+
+#adBanner{
+	border-radius: 5px;
+	box-shadow: 8px 8px #111111;
+	margin-top: 100px;
+}
+
+/* Background */
+
+body{
+    background: url('../images/pattern.png');
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #000;
+}

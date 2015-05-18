@@ -1,0 +1,53 @@
+/* Banière */
+
+#adBanner{
+	border-radius: 5px;
+	box-shadow: 8px 8px #111111;
+	margin-top: 100px;
+}
+
+/* Navigation */
+
+#navigation{
+	margin-top: 40px;
+	width: 70%;
+	margin: auto;
+	padding: 1px;
+	color: white;
+	background-color: rgba(153,153,153,0.5);
+	white-space: nowrap;
+	border-radius: 4px;
+	box-shadow: 2px 2px 5px #1c1a19;
+}
+
+#navigation p{
+	margin-left: 50px;
+}
+
+/* Contenu */
+
+article{
+    width: 50%;
+	margin-left: 15%;
+	margin-top: 50px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+}
+
+section h1, footer h1, nav a{
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+	font-size: 2em;
+}
+
+section article p{
+	text-justify: auto;
+}
+
+section article ul{
+	display: inline-block;
+	margin-left: 20px;
+	list-style-image: url('../images/puce.png');
+}

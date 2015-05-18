@@ -1,0 +1,27 @@
+/* Footer */
+
+#bottom p{
+	text-align: center;
+	color: #000;
+}
+
+#bottom a{
+	color: #000;
+	text-decoration: none;
+	transition-property: all, border-radius;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+#bottom a:hover{
+	color: #06C;
+	text-decoration: none;
+	transition-property: all, border-radius;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+#copy{
+	text-align: center;
+	margin-right: 4%;
+}
