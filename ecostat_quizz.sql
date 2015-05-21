@@ -25,3 +25,4 @@ CREATE TABLE tb_rep_quizz (
 	PRIMARY KEY (codeQ_quizz,libelleReponse),
 	CONSTRAINT codeQ_quizz_fk2 FOREIGN KEY (codeQ_quizz) REFERENCES q_quizz (codeQ_quizz)
 );
+/* Tables pour Quizz */
