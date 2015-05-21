@@ -18,6 +18,135 @@ USE `ecostat`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `enquete`
+--
+
+DROP TABLE IF EXISTS `enquete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `enquete` (
+  `CodeEnquete` int(11) NOT NULL,
+  `libelleEnquete` varchar(50) NOT NULL,
+  PRIMARY KEY (`CodeEnquete`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enquete`
+--
+
+LOCK TABLES `enquete` WRITE;
+/*!40000 ALTER TABLE `enquete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enquete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ip_enq`
+--
+
+DROP TABLE IF EXISTS `ip_enq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ip_enq` (
+  `ip` varchar(30) NOT NULL,
+  `codeEnquete` int(11) NOT NULL,
+  PRIMARY KEY (`ip`,`codeEnquete`),
+  KEY `freg_fk1` (`codeEnquete`),
+  CONSTRAINT `freg_fk1` FOREIGN KEY (`codeEnquete`) REFERENCES `enquete` (`CodeEnquete`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ip_enq`
+--
+
+LOCK TABLES `ip_enq` WRITE;
+/*!40000 ALTER TABLE `ip_enq` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ip_enq` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ip_quizz`
+--
+
+DROP TABLE IF EXISTS `ip_quizz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ip_quizz` (
+  `ip` varchar(30) NOT NULL,
+  `codeQuizz` int(11) NOT NULL,
+  PRIMARY KEY (`ip`,`codeQuizz`),
+  KEY `frfr_fk1_idx` (`codeQuizz`),
+  CONSTRAINT `frfr_fk1` FOREIGN KEY (`codeQuizz`) REFERENCES `quizz` (`codeQuizz`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ip_quizz`
+--
+
+LOCK TABLES `ip_quizz` WRITE;
+/*!40000 ALTER TABLE `ip_quizz` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ip_quizz` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ip_sond`
+--
+
+DROP TABLE IF EXISTS `ip_sond`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ip_sond` (
+  `ip` varchar(30) NOT NULL,
+  `codeQ_sondage` int(11) NOT NULL,
+  `idSondage` int(11) NOT NULL,
+  PRIMARY KEY (`ip`,`codeQ_sondage`,`idSondage`),
+  KEY `ferfer_fk1_idx` (`codeQ_sondage`),
+  KEY `fergr_fk1_idx` (`idSondage`),
+  KEY `fdf_fk1_idx` (`codeQ_sondage`,`idSondage`),
+  CONSTRAINT `de_fk1` FOREIGN KEY (`idSondage`) REFERENCES `q_sondage` (`codeSondage`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `vgfrv_fk1` FOREIGN KEY (`codeQ_sondage`) REFERENCES `q_sondage` (`codeQ_sondage`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ip_sond`
+--
+
+LOCK TABLES `ip_sond` WRITE;
+/*!40000 ALTER TABLE `ip_sond` DISABLE KEYS */;
+INSERT INTO `ip_sond` VALUES ('::1',3,1);
+/*!40000 ALTER TABLE `ip_sond` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `q_enquete`
+--
+
+DROP TABLE IF EXISTS `q_enquete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `q_enquete` (
+  `codeQ_enquete` int(11) NOT NULL,
+  `codeEnquete` int(11) NOT NULL,
+  `libelleEnquete` varchar(40) NOT NULL,
+  PRIMARY KEY (`codeQ_enquete`),
+  KEY `fefe_fk1` (`codeEnquete`),
+  CONSTRAINT `fefe_fk1` FOREIGN KEY (`codeEnquete`) REFERENCES `enquete` (`CodeEnquete`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `q_enquete`
+--
+
+LOCK TABLES `q_enquete` WRITE;
+/*!40000 ALTER TABLE `q_enquete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `q_enquete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `q_quizz`
 --
 
@@ -120,6 +249,32 @@ INSERT INTO `sondage` VALUES (1,'PC'),(2,'Nutrition');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tb_enquete`
+--
+
+DROP TABLE IF EXISTS `tb_enquete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_enquete` (
+  `codeReponse` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL,
+  `codeQ_enquete` int(11) NOT NULL,
+  PRIMARY KEY (`codeReponse`),
+  KEY `fefrgr_fk1` (`codeQ_enquete`),
+  CONSTRAINT `fefrgr_fk1` FOREIGN KEY (`codeQ_enquete`) REFERENCES `q_enquete` (`codeQ_enquete`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_enquete`
+--
+
+LOCK TABLES `tb_enquete` WRITE;
+/*!40000 ALTER TABLE `tb_enquete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_enquete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_quizz`
 --
 
@@ -195,7 +350,7 @@ CREATE TABLE `tb_sondage` (
 
 LOCK TABLES `tb_sondage` WRITE;
 /*!40000 ALTER TABLE `tb_sondage` DISABLE KEYS */;
-INSERT INTO `tb_sondage` VALUES (1,2,'Oui',1),(2,1,'Non',1),(3,1,'Fou',2),(4,2,'Bou',2),(5,1,'Sérieux ?',3),(6,0,'Tu rêves.',3),(7,0,'Yes',4),(8,1,'No',4),(9,1,'HTHT',4),(10,4,'Fou',3);
+INSERT INTO `tb_sondage` VALUES (1,5,'Oui',1),(2,4,'Non',1),(3,1,'Fou',2),(4,2,'Bou',2),(5,1,'Sérieux ?',3),(6,0,'Tu rêves.',3),(7,0,'Yes',4),(8,1,'No',4),(9,1,'HTHT',4),(10,4,'Fou',3);
 /*!40000 ALTER TABLE `tb_sondage` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -208,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-21 18:58:12
+-- Dump completed on 2015-05-21 22:36:33

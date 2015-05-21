@@ -46,10 +46,10 @@ class Sondage extends Bdd {
         $EnvoiReponse = $this->connexionbdd()->query("UPDATE tb_sondage SET compteur = compteur + 1 WHERE id_reponse = $idreponse");
     }
     public function getIp($ip,$codeSondage,$codeQuestion){
-        return $this->connexionbdd()->query("SELECT * FROM ip_sond WHERE ip='$ip' AND codeQ_sondage=$codeSondage AND ")->fetch_array();
+        return $this->connexionbdd()->query("SELECT * FROM ip_sond WHERE ip='$ip' AND codeQ_sondage=$codeQuestion AND idSondage=$codeSondage")->fetch_array();
     }
-    public function addIp($ip,$codeSondage) {
-        $this->connexionbdd()->query("INSERT INTO ip_sond VALUES ('$ip',$codeSondage)");
+    public function addIp($ip,$codeSondage,$codeQuestion) {
+        $this->connexionbdd()->query("INSERT INTO ip_sond VALUES ('$ip',$codeQuestion,$codeSondage)");
     }
 
 }
