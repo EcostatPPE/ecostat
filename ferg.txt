@@ -1,0 +1,14 @@
+Sondages : 
+-	Un sondage est un ensemble de questions elles-mêmes reliées à un ensemble de réponses.
+-	Un sondage s’effectue de bout en bout, il n’est valide que lorsque le sondé a répondu à toutes les questions et a validé sa contribution.
+-	Les questions du sondage ne doivent pas apparaître dans n’importe quel ordre. 
+
+Par exemple, un sondage va être mené à la fin du premier tour d’une élection, il comporte quelques questions qui sont reliées à un ensemble fini de réponses.  Une fois ce sondage terminé, il n’y aura pas de suite. Le sondage sera analysé dans un deuxième temps. 
+Pour éviter un effet de bord dû à des possibles abus, il n’y aura qu’un seul sondage possible par IP.
+
+Enquêtes :
+-	Une enquête est un ensemble de processus bien distincts mais dont les acteurs se voient obligés d’y participer.
+-	Les séquences peuvent s’étaler sur le temps. Il n’y a pas l’obligation de terminer une séquence mais il y a obligation de terminer une séquence pour pouvoir passer à une autre.
+-	Une enquête est donc découpée en plusieurs séquences, chacune d’entre elle n’étant pas totalement déconnectée de l’autre : la séquence 2 impose par exemple que la séquence 1 ait été réalisée par le sondé.
+Par exemple, une enquête peut porter sur un produit. Après avoir demandé aux consommateurs ce qu’ils pensaient de ce produit, il peut très bien y avoir une enquête de satisfaction auprès de ceux qui l’ont finalement utilisé.
+Une enquête peut être lancée sur la sortie d’un film par exemple. Il comprendra des questions qui peuvent s’étaler sur le temps, et marquées par des moments bien précis. Par exemple, la sortie du film est marquée par son annonce, puis sa bande annonce, par sa promotion dans les média, puis sa sortie au cinéma, puis sa sortie en dvd et enfin par éventuellement une participation à des prix. Chaque moment de la vie de ce film peut être évalué par une enquête auprès d’un panel précis de personnes.

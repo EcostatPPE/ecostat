@@ -39,8 +39,19 @@ class Sondage2 {
     }
 
     public function ajouterReponse($reponse, $idquestion, $idsondage) {
+        $ipdumec = $_SERVER['REMOTE_ADDR'];
+        $iptable = $this->sond->getIp($ipdumec,$idquestion);
+        $idsondage = $this->sond->getSondId($idsondage);
+        if($ipdumec == $iptable['ip']){
+            echo ('Vous ne pouvez pas voter une deuxième fois à cette question.');
+            //header("Refresh:2;URL=/Ecostat/vue/sondage");
+        }
+        else
+        {
         $this->sond->addReponse($reponse);
-        header("Location:/ecostat/vue/sondage/");
+        $this->sond->addIp($ipdumec,$idsondage['idSondage']);
+        //header("Location:/ecostat/vue/sondage/");
+        }
     }
 
 }

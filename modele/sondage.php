@@ -7,7 +7,9 @@ class Sondage extends Bdd {
         $req = $req->fetch_array();
         return $req;
     }
-
+    public function getSondage($id) {
+        return $this->connexionbdd()->query("SELECT * FROM sondage WHERE idSondage$id")->fetch_array();
+    }
     public function getSondTheme($idsond) {
         $rec = $this->connexionbdd()->query('SELECT * FROM q_sondage WHERE codeSondage="' . $idsond . '"');
         return $rec;
@@ -42,6 +44,12 @@ class Sondage extends Bdd {
 
     public function addReponse($idreponse) {
         $EnvoiReponse = $this->connexionbdd()->query("UPDATE tb_sondage SET compteur = compteur + 1 WHERE id_reponse = $idreponse");
+    }
+    public function getIp($ip,$codeSondage,$codeQuestion){
+        return $this->connexionbdd()->query("SELECT * FROM ip_sond WHERE ip='$ip' AND codeQ_sondage=$codeSondage AND ")->fetch_array();
+    }
+    public function addIp($ip,$codeSondage) {
+        $this->connexionbdd()->query("INSERT INTO ip_sond VALUES ('$ip',$codeSondage)");
     }
 
 }
