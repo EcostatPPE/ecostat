@@ -1,72 +1,72 @@
 /* Menu */
 
 #menu{
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	margin: auto;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin: auto;
 }
 
 #menu-demo2, #menu-demo2 ul{
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
 }
 
 #menu-demo2 li{
-	display: inline-block;
-	position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 #menu-demo2 ul li{
-	display: inherit;
-	border-radius: 0;
+    display: inherit;
+    border-radius: 0;
 }
 
 #menu-demo2 ul{
-	position: absolute;
-	max-height: 0;
-	width: 100%;
-	overflow: hidden;
-	-moz-transition: .8s all .1s;
-	-webkit-transition: .8s all .1s;
-	transition: .8s all .1s;
+    position: absolute;
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    -moz-transition: .8s all .1s;
+    -webkit-transition: .8s all .1s;
+    transition: .8s all .1s;
 }
 
 /* Background des liens menus */
 
 #menu-demo2 li:first-child{
-	background-color: rgba(153,153,153,0.5);
-	transition-property: background, border-radius;
+    background-color: rgba(153,153,153,0.5);
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(2){
-	background-color: rgba(153,153,153,0.5);
-	transition-property: background, border-radius;
+    background-color: rgba(153,153,153,0.5);
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(3){
-	background-color: rgba(153,153,153,0.5);
-	transition-property: background, border-radius;
+    background-color: rgba(153,153,153,0.5);
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(4){
-	background-color: rgba(153,153,153,0.5);
-	transition-property: background, border-radius;
+    background-color: rgba(153,153,153,0.5);
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:last-child{
-	background-color: rgba(153,153,153,0.5);
-	transition-property: background, border-radius;
+    background-color: rgba(153,153,153,0.5);
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
@@ -74,36 +74,36 @@
 /* Background des liens menus et sous menus au survol */
 
 #menu-demo2 li:first-child:hover{
-	background: #06F;
-	transition-property: background, border-radius;
+    background: #06F;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(2):hover{
-	background: #06F;
-	transition-property: background, border-radius;
+    background: #06F;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(3):hover{
-	background: #06F;
-	transition-property: background, border-radius;
+    background: #06F;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:nth-child(4):hover{
-	background: #06F;
-	transition-property: background, border-radius;
+    background: #06F;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 #menu-demo2 li:last-child:hover{
-	background: #06F;
-	transition-property: background, border-radius;
+    background: #06F;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
@@ -111,21 +111,21 @@
 /* Les a href */
 
 #menu-demo2 a{
-	text-decoration: none;
-	display: block;
-	padding: 8px 32px;
-	color: #FFF;
-	font-family: Trebuchet MS;
-	text-transform: none;
+    text-decoration: none;
+    display: block;
+    padding: 8px 32px;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    text-transform: none;
 }
 
 #menu-demo2 li:hover li a{
-	color: #000;
-	text-transform: inherit;
+    color: #000;
+    text-transform: inherit;
 }
 
 #menu-demo2 li:hover a, #menu-demo2 li li:hover a{
-	color: #FFF;
+    color: #FFF;
 }
 
 /* Bouton retour en haut */
@@ -140,15 +140,20 @@
     font-size: 12px;
     padding: 1em;
     display: none;
-	transition-property: background, border-radius;
+    transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
 .back-to-top:hover {
     background-color: #06F;
+<<<<<<< HEAD
 	color: #FFF;
 	transition-property: background, border-radius;
+=======
+    color: #FFF;
+    transition-property: background, border-radius;
+>>>>>>> origin/master
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
