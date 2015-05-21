@@ -147,7 +147,7 @@
 
 .back-to-top:hover {
     background-color: #06F;
-	color: #FFF
+	color: #FFF;
 	transition-property: background, border-radius;
     transition-duration: 0.3s;
     transition-timing-function: linear;
