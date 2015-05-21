@@ -32,8 +32,6 @@
 
                 <li><a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/Ecostat/vue/enquete/">Enquête</a></li>
 
-                <li><a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/Ecostat/vue/contact/">Contact</a></li>
-
             </ul>
 
         </div>
