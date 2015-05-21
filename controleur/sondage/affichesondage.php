@@ -1,12 +1,11 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/modele/conn_db.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/modele/sondage.php';
 
+require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/modele/conn_db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/modele/sondage.php';
 
 class Sondage2 {
 
     private $sond;
-
 
     public function __construct() {
         $this->sond = new Sondage();
@@ -22,27 +21,28 @@ class Sondage2 {
         $questiond = $questionsond->fetch_array();
         $tabrep = array();
         // Récup des réponses possibles des questions
-        foreach($questionsond as $question){
+        foreach ($questionsond as $question) {
             $reponse = $this->sond->getSondRep($question['codeQ_sondage']); // REQUETE A MODIFIER
             array_push($tabrep, $reponse);
         }
         $titre = 'ECOSTAT • Sondage';
-        require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/Vue/sondage/vue_sondage.php';
-        require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/Vue/gabarit.php';
-
-
+        require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/Vue/sondage/vue_sondage.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/Vue/gabarit.php';
     }
+
     public function afficherAccueil() {
 
         $theme = $this->sond->getSondages();
         $titre = 'ECOSTAT • Sondage';
-        require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/Vue/sondage/vue_sondage.php';
-        require_once $_SERVER['DOCUMENT_ROOT'].'Ecostat/Vue/gabarit.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/Vue/sondage/vue_sondage.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/Vue/gabarit.php';
     }
-    public function ajouterReponse($reponse,$idquestion,$idsondage)
-    {
+
+    public function ajouterReponse($reponse, $idquestion, $idsondage) {
         $this->sond->addReponse($reponse);
         header("Location:/ecostat/vue/sondage/");
     }
+
 }
+
 ?>

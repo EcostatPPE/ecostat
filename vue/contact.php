@@ -25,30 +25,30 @@
 
             <div id="navigation">
 
-                    <p>Il est actuellement <span id="heure"></span>.</p>
+                <p>Il est actuellement <span id="heure"></span>.</p>
 
             </div>
 
-<body>
-			 <section>
-                <article>
+            <body>
+                <section>
+                    <article>
 
-                <h1>Contact</h1>
+                        <h1>Contact</h1>
 
-                    <p>Cette page est vide pour le moment.</p>
-
-
+                        <p>Cette page est vide pour le moment.</p>
 
 
-                </article>
 
-                <?php include("include/aside.php"); ?>
 
-            </section>
+                    </article>
 
-            <?php include ("include/footer.php"); ?>
+                    <?php include("include/aside.php"); ?>
 
-            <?php include("include/top.php"); ?>
+                </section>
 
-    </body>
+                <?php include ("include/footer.php"); ?>
+
+                <?php include("include/top.php"); ?>
+
+            </body>
 </html>

@@ -5,8 +5,8 @@ aside{
     vertical-align: top;
     text-align: justify;
     position: absolute;
-	top: 370px;
-	right: 16%;
+    top: 370px;
+    right: 16%;
     width: 235px;
     background-color: rgba(153,153,153,0.5);
     box-shadow: 2px 2px 5px #1c1a19;
@@ -17,31 +17,31 @@ aside{
 }
 
 aside h1{
-	font-size: 1.3em;
-	text-align: center;
+    font-size: 1.3em;
+    text-align: center;
 }
 
 aside p{
-	text-align: center;
+    text-align: center;
 }
 
 aside a{
-	color: #FFF;
-	text-align: center;
-	transition-property: all;
-	transition-duration: 0.3s;
-	transition-timing-function: linear;
-	text-decoration: none;
+    color: #FFF;
+    text-align: center;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    text-decoration: none;
 }
 
 aside a:hover{
-	color: #06F;
-	transition-property: all;
-	trasition-duration: 0.3s;
-	transition-timing-function: linear;
-	text-decoration: none;
+    color: #06F;
+    transition-property: all;
+    trasition-duration: 0.3s;
+    transition-timing-function: linear;
+    text-decoration: none;
 }
 
 #sondage_cours{
-	color: #F00;
+    color: #F00;
 }
