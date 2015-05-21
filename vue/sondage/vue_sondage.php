@@ -12,7 +12,6 @@
                     $c = 0;
                     foreach ($questionsond as $questionsondage) {
                         ?>
-                        <input type="hidden" name="idQuestion" value="<?= $questionsondage['codeQ_sondage'] ?>">
                         <?= $questionsondage['libelleQuestion'] ?> <a class="lienResultat" href="/ecostat/vue/sondage/r/?id=<?= $questionsondage['codeQ_sondage'] ?>">Voir résultat</a><br>
                         <?php $reponse = $tabrep[$c]; ?>
                         <?php foreach ($reponse as $reponsesondage) { ?>

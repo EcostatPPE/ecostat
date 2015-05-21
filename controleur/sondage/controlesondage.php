@@ -10,7 +10,7 @@ if (isset($_POST['selectionner'])) /* && $_POST['selectionner']=='Selectionner')
     $idsond = $_POST['id'];
     $ctrl->afficherSondage($idsond);
 } elseif (isset($_POST['reponse'])) {
-    $ctrl->ajouterReponse($_POST['reponse'], $_POST['idQuestion'], $_POST['idSond']);
+    $ctrl->ajouterReponse($_POST['reponse'], $_POST['idSond']);
 } else {
     $ctrl->afficherAccueil();
 }

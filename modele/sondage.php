@@ -41,7 +41,9 @@ class Sondage extends Bdd {
     public function getSondageReponse($libelle, $codeQ) {
         return $this->connexionbdd()->query("SELECT * FROM tb_sondage WHERE libelle='$libelle' AND codeQ_sondage=$codeQ")->fetch_array();
     }
-
+    public function getQuestionRep($id_reponse) {
+        return $this->connexionbdd()->query("SELECT codeQ_sondage FROM tb_sondage WHERE id_reponse=$id_reponse")->fetch_array();
+    }
     public function addReponse($idreponse) {
         $EnvoiReponse = $this->connexionbdd()->query("UPDATE tb_sondage SET compteur = compteur + 1 WHERE id_reponse = $idreponse");
     }

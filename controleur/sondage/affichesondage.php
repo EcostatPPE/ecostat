@@ -38,21 +38,20 @@ class Sondage2 {
         require_once $_SERVER['DOCUMENT_ROOT'] . 'Ecostat/Vue/gabarit.php';
     }
 
-    public function ajouterReponse($reponse, $idquestion, $idsondage) {
+    public function ajouterReponse($reponse, $idsondage) {
         $ipdumec = $_SERVER['REMOTE_ADDR'];
+        $idquestion = $this->sond->getQuestionRep($reponse);
         $idsondage = $this->sond->getSondId($idsondage);
-        $iptable = $this->sond->getIp($ipdumec,$idsondage['idSondage'],$idquestion);
-        echo 'IP = '.$ipdumec.'<br>';
-        echo 'idsondage = '.$idsondage['idSondage'].'<br>$idquestion = '.$idquestion.'<br>';
+        $iptable = $this->sond->getIp($ipdumec,$idsondage['idSondage'],$idquestion['codeQ_sondage']);
         if($ipdumec == $iptable['ip']){
             echo ('Vous ne pouvez pas voter une deuxième fois à cette question.');
-            //header("Refresh:2;URL=/Ecostat/vue/sondage");
+            header("Refresh:2;URL=/Ecostat/vue/sondage");
         }
         else
         {
         $this->sond->addReponse($reponse);
-        $this->sond->addIp($ipdumec,$idsondage['idSondage'],$idquestion);
-        //header("Location:/ecostat/vue/sondage/");
+        $this->sond->addIp($ipdumec,$idsondage['idSondage'],$idquestion['codeQ_sondage']);
+        header("Location:/ecostat/vue/sondage/");
         }
     }
 
