@@ -14,12 +14,10 @@
                 <input type="hidden" name="repondu" value="yes">
                 <?= $questionsondage['libelleQuestion'] ?><br>
                 <?php  $reponse = $tabrep[$c];?>
-                <select name="reponse">
                 <?php foreach ($reponse as $reponsesondage){ ?>
-                <option name="reponse[]" value="<?= $reponsesondage['idReponse']?>" />
+                <input type="checkbox" name="reponse[]" value="<?= $reponsesondage['libelle']?>" />
                 <?= $reponsesondage['libelle']; ?><br>
-                <?php }?>
-                </select><br><?php
+                <?php }?><?php
                 $c= $c+1;
                 }
                 ?>
@@ -33,8 +31,13 @@
     <?php } ?>
     <center>
         <?php if(isset($_SESSION['reponse'])){
-    echo '<p>'.$_SESSION['reponse'].'</p>';
-} if(!(isset($_SESSION['reponse']))){?>
+            echo '<p>'.$_SESSION['reponse'].'</p>';
+            }
+elseif(isset($_GET['final']) && $_GET['final'] == 1){
+    echo '<p>Vous vous êtes trompé à toutes les questions.</p>';
+}
+
+if(!(isset($_SESSION['reponse'])) && !(isset($_GET['final']))){?>
         <form action="<?php $_SERVER['DOCUMENT_ROOT'] ?>/Ecostat/vue/quizz/" method="POST">
             <select name="id">
                 <?php foreach ($theme as $sondages) { ?>

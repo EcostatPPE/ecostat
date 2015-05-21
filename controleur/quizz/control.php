@@ -41,15 +41,25 @@ class Quizz2 {
     }
     public function ajouterReponse($reponse,$idquestion,$idsondage)
     {
-        $vraiRep = $this->quizz->getTrueRep($reponse,$idquestion);
-        $question = $this->quizz->getQuestion($idquestion);
-        echo $vraiRep['libelleReponse'];
-        if($reponse == $vraiRep['libelleReponse']){
-            $_SESSION['reponse'] = 'Vous avez bien à toutes les questions';
-        }
-        else
+        $c = 0;
+        foreach($reponse as $chbk)
         {
-            $_SESSION['reponse'] = 'Vous vous êtes trompé à la question '.$question['libelleQuestion'];
+            $question = $this->quizz->getCodeQRep($chbk);
+            foreach ($question as $questions){
+                $vraiRep = $this->quizz->getTrueRep($chbk,$questions['codeQ_quizz']);
+                foreach ($vraiRep as $truerep){
+                    if($chbk == $truerep['libelleReponse']){
+                        if(!(isset($_SESSION['reponse']))){
+                            $_SESSION['reponse'] = "Vous avez bien répondu à la question ".$questions['codeQ_quizz']."<br>";
+                        }
+                        else
+                        {
+                            $_SESSION['reponse'] = $_SESSION['reponse']."Vous avez bien répondu à la question ".$questions['codeQ_quizz']."<br>";
+                        }
+                    }
+                }
+            }
+            $c = $c +  1;
         }
         header("Location:/Ecostat/vue/quizz/?final=1&quizz=".$idquestion);
     }

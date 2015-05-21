@@ -26,7 +26,7 @@ class Quizz extends Bdd{
         return $this->connexionbdd()->query("SELECT * FROM tb_quizz WHERE codeQ_quizz=$idQuestion");
     }
     public function getQuestion($idQuestion) {
-        return $this->connexionbdd()->query("SELECT * FROM q_quizz WHERE codeQ_quizz=$idQuestion")->fetch_array();
+        return $this->connexionbdd()->query("SELECT * FROM q_quizz WHERE codeQ_quizz=$idQuestion");
     }
     public function getQuizzReponse($libelle,$codeQ)
     {
@@ -34,14 +34,18 @@ class Quizz extends Bdd{
     }
     public function getTrueRep($libelle,$codeQ)
     {
-        try {
-            $req = $this->connexionbdd()->query("SELECT * FROM tb_rep_quizz WHERE libelle='$libelle' AND codeQ_quizz=$codeQ");
+        $req = $this->connexionbdd()->query("SELECT * FROM tb_rep_quizz WHERE libelleReponse='$libelle' AND codeQ_quizz=$codeQ");
+        if($req->num_rows > 0){
+            return $req;
         }
-        catch (Exception $e) {
-            $req = $this->getQuestion($codeQ);
-            return 'Mauvaise réponse à la question '.$req['libelleQuestion'];
+        else
+        {
+            return 1;
         }
-
+    }
+    public function getCodeQRep($libelle)
+    {
+        return $this->connexionbdd()->query("SELECT * FROM tb_rep_quizz WHERE libelleReponse='$libelle'");
     }
 }
 

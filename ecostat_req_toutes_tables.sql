@@ -18,6 +18,33 @@ USE `ecostat`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `q_quizz`
+--
+
+DROP TABLE IF EXISTS `q_quizz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `q_quizz` (
+  `codeQ_quizz` int(11) NOT NULL AUTO_INCREMENT,
+  `codeQuizz` int(11) NOT NULL,
+  `libelleQuestion` varchar(50) NOT NULL,
+  PRIMARY KEY (`codeQ_quizz`),
+  KEY `codequizz_fk1` (`codeQuizz`),
+  CONSTRAINT `codequizz_fk1` FOREIGN KEY (`codeQuizz`) REFERENCES `quizz` (`codeQuizz`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `q_quizz`
+--
+
+LOCK TABLES `q_quizz` WRITE;
+/*!40000 ALTER TABLE `q_quizz` DISABLE KEYS */;
+INSERT INTO `q_quizz` VALUES (1,1,'Quel est le premier avion ?'),(2,1,'Qui est le PDG de Microsoft ?');
+/*!40000 ALTER TABLE `q_quizz` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `q_sondage`
 --
 
@@ -45,6 +72,30 @@ INSERT INTO `q_sondage` VALUES (1,1,'Aimes-tu les frites ?'),(2,1,'Aimes tu les 
 UNLOCK TABLES;
 
 --
+-- Table structure for table `quizz`
+--
+
+DROP TABLE IF EXISTS `quizz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `quizz` (
+  `codeQuizz` int(11) NOT NULL AUTO_INCREMENT,
+  `libelleQuizz` varchar(45) NOT NULL,
+  PRIMARY KEY (`codeQuizz`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quizz`
+--
+
+LOCK TABLES `quizz` WRITE;
+/*!40000 ALTER TABLE `quizz` DISABLE KEYS */;
+INSERT INTO `quizz` VALUES (1,'PC'),(2,'Lolition');
+/*!40000 ALTER TABLE `quizz` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sondage`
 --
 
@@ -66,6 +117,58 @@ LOCK TABLES `sondage` WRITE;
 /*!40000 ALTER TABLE `sondage` DISABLE KEYS */;
 INSERT INTO `sondage` VALUES (1,'PC'),(2,'Nutrition');
 /*!40000 ALTER TABLE `sondage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_quizz`
+--
+
+DROP TABLE IF EXISTS `tb_quizz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_quizz` (
+  `idReponse` int(11) NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) NOT NULL,
+  `codeQ_quizz` int(11) NOT NULL,
+  PRIMARY KEY (`idReponse`),
+  KEY `codeQ_quizz_fk1` (`codeQ_quizz`),
+  CONSTRAINT `codeQ_quizz_fk1` FOREIGN KEY (`codeQ_quizz`) REFERENCES `q_quizz` (`codeQ_quizz`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_quizz`
+--
+
+LOCK TABLES `tb_quizz` WRITE;
+/*!40000 ALTER TABLE `tb_quizz` DISABLE KEYS */;
+INSERT INTO `tb_quizz` VALUES (1,'Bill Gates',2),(2,'Avion',1),(3,'Steve Jobs',2),(4,'Voiture',1);
+/*!40000 ALTER TABLE `tb_quizz` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_rep_quizz`
+--
+
+DROP TABLE IF EXISTS `tb_rep_quizz`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_rep_quizz` (
+  `codeQ_quizz` int(11) NOT NULL,
+  `libelleReponse` varchar(50) NOT NULL,
+  PRIMARY KEY (`codeQ_quizz`),
+  CONSTRAINT `codeQ_quizz_fk2` FOREIGN KEY (`codeQ_quizz`) REFERENCES `q_quizz` (`codeQ_quizz`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_rep_quizz`
+--
+
+LOCK TABLES `tb_rep_quizz` WRITE;
+/*!40000 ALTER TABLE `tb_rep_quizz` DISABLE KEYS */;
+INSERT INTO `tb_rep_quizz` VALUES (1,'Avion'),(2,'Bill Gates');
+/*!40000 ALTER TABLE `tb_rep_quizz` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -92,7 +195,7 @@ CREATE TABLE `tb_sondage` (
 
 LOCK TABLES `tb_sondage` WRITE;
 /*!40000 ALTER TABLE `tb_sondage` DISABLE KEYS */;
-INSERT INTO `tb_sondage` VALUES (1,1,'Oui',1),(2,1,'Non',1),(3,0,'Fou',2),(4,1,'Bou',2),(5,0,'Sérieux ?',3),(6,0,'Tu rêves.',3),(7,0,'Yes',4),(8,1,'No',4),(9,1,'HTHT',4),(10,4,'Fou',3);
+INSERT INTO `tb_sondage` VALUES (1,2,'Oui',1),(2,1,'Non',1),(3,1,'Fou',2),(4,2,'Bou',2),(5,1,'Sérieux ?',3),(6,0,'Tu rêves.',3),(7,0,'Yes',4),(8,1,'No',4),(9,1,'HTHT',4),(10,4,'Fou',3);
 /*!40000 ALTER TABLE `tb_sondage` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-21 14:45:43
+-- Dump completed on 2015-05-21 18:58:12
