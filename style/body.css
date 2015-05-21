@@ -51,3 +51,30 @@ section article ul{
 	margin-left: 20px;
 	list-style-image: url('../images/puce.png');
 }
+.lienResultat {
+    color: #FFF;
+    text-align: center;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    text-decoration: none;
+    font-size: 0.7em;
+}
+.lienResultat:hover {
+    color: #06F;
+}
+#nostyle {
+    margin-left: 20px;
+    list-style: none;
+}
+#gros {
+    font-size: 1.2em;
+}
+.corps {
+    min-height: 650px;
+}
+#width {
+    width: auto;
+    max-width: 80px;
+    overflow: hidden;
+}
