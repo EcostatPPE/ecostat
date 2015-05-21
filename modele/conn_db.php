@@ -8,7 +8,7 @@ class Bdd {
 
         $host = 'localhost';
         $user = 'root';
-        $password = 'admin';
+        $password = '';
         $database = 'ecostat';
 
         $this->mysqli = new mysqli($host, $user, $password, $database);

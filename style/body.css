@@ -71,10 +71,21 @@ section article ul{
     font-size: 1.2em;
 }
 .corps {
-    min-height: 650px;
+    min-height: 700px;
+    width: 100%;
+    margin: auto;
+    padding-left: 10%;
 }
+
 #width {
     width: auto;
     max-width: 80px;
     overflow: hidden;
+}
+
+#bloc_page{
+    text-align: justify;
+    width:auto;
+    height:1000px;
+    margin-bot: 3%
 }
