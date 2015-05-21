@@ -17,7 +17,7 @@
     </head>
     <header>
         <div align="center">
-            <a href="/ecostat/index.php">
+            <a href="/Ecostat/">
                 <img src="/ecostat/images/ecostat_logo2.png" id="title"/>
             </a>
         </div>

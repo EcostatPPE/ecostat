@@ -7,7 +7,7 @@
         <span id="nostyle"><li>Réponse : <?= $reponse['libelle']?> - Nombre de réponses : <?= $reponse['compteur'] ?></li></span>
 <?php } ?>
 <br>
-<a class="lienResultat" id="gros" href="/ecostat/vue/sondage/">Retour aux sondages</a>
+<a class="lienResultat" id="gros" href="/Ecostat/vue/sondage/">Retour aux sondages</a>
     </article>
 </section>
 
