@@ -51,8 +51,9 @@ section article ul{
     margin-left: 20px;
     list-style-image: url('../images/puce.png');
 }
+
 .lienResultat {
-    color: #FFF;
+    color: #7C888B;
     text-align: center;
     transition-property: all;
     transition-duration: 0.1s;
